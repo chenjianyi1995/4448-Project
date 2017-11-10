@@ -17,6 +17,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDAO userDAO;
 	
+
+	
 	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
@@ -24,6 +26,8 @@ public class UserServiceImpl implements UserService {
 	public UserDAO getUserDAO() {
 		return userDAO;
 	}
+	
+
 	
 	@Override
 	public List<User> getUserList(){

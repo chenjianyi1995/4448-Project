@@ -2,8 +2,6 @@ package com.roverandfriends.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 		return hibernateTemplate;
 	}
 	
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getUserList(){
 			return (List<User>) hibernateTemplate.find("from User"); 
@@ -59,5 +57,7 @@ public class UserDAOImpl implements UserDAO {
 		else
 			return null;
 	}
+	
+
 
 }

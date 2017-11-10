@@ -2,20 +2,30 @@
 <%@ include file="common/navigation.jspf"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-    <div align="center">
-        <table border="1" cellpadding="5">
-            <caption><h3>List of Users</h3></caption>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-            <c:forEach var="user" items="${userList}">
-                <tr>
-                    <td><c:out value="${user.userName}" /></td>       
+
+	<div class="container">
+		<table class="table table-striped">
+			<caption>List of Users</caption>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${userList}" var="user">
+					<tr>
+						<td><c:out value="${user.userName}" /></td>       
                     <td><c:out value="${user.email}" /></td>
-                </tr>
-            </c:forEach>
-        </table>
-    </div>	
+						<td><a type="button" class="btn btn-primary">Add Friend</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
+	</div>
+
 
 <%@ include file="common/footer.jspf"%>

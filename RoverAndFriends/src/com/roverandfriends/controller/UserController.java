@@ -1,6 +1,6 @@
 package com.roverandfriends.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.roverandfriends.model.User;
@@ -20,6 +21,7 @@ import com.roverandfriends.model.UserLoginCredential;
 import com.roverandfriends.service.UserService;
 
 @Controller
+@SessionAttributes("user")
 public class UserController {
 	
 	@Autowired
@@ -38,10 +40,6 @@ public class UserController {
 		return "buy-pet-tag";
 	}
 	
-	@RequestMapping(value = { "/calendar" }, method = RequestMethod.GET)
-	public String showCalendar(ModelMap model) {
-		return "calendar";
-	}
 	
 	@RequestMapping(value = { "/find-pet-sitter" }, method = RequestMethod.GET)
 	public String showFindPetSitter(ModelMap model) {
@@ -80,22 +78,20 @@ public class UserController {
 		return "register";
 	}
 	
-	
 	@RequestMapping(value ="/addFriends" ,method=RequestMethod.GET)
 	public ModelAndView addFriendsPage(){
 		 ModelAndView modelAndView = new ModelAndView("addFriends");
 		 List<User> userList = userService.getUserList();
 		 modelAndView.addObject("userList", userList);
 		 return modelAndView;
-	}
-		
+	}	
+	
 	@RequestMapping(value ="/home" ,method=RequestMethod.GET)
-	public String homePage(){
-		
-		return "home";
+	public ModelAndView showHomePage(){
+		 ModelAndView modelAndView = new ModelAndView("home");
+		 return modelAndView;
 	}
 	
-
 	@RequestMapping(value ="/registerSuccess" ,method=RequestMethod.POST)
 	public ModelAndView registerSuccess(@Valid @ModelAttribute("user") User user,BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
@@ -106,6 +102,7 @@ public class UserController {
 		modelAndView.addObject("user", user);
 		return modelAndView;
 	}
+	
 	@RequestMapping(value ="/loginSuccess" ,method=RequestMethod.POST)
 	public ModelAndView loginSuccess(@Valid @ModelAttribute("userLoginCredential") UserLoginCredential userLoginCredential,BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
@@ -125,8 +122,7 @@ public class UserController {
 		return modelAndView;
 	}
 	
-	
-	
+
 	@RequestMapping(value ="/deleteAccount" ,method=RequestMethod.POST)
 	public ModelAndView unregisterSuccess(@Valid @ModelAttribute("user") User user,BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
@@ -141,38 +137,4 @@ public class UserController {
 		return modelAndView;
 	}
 	
-/*	@RequestMapping(value ="/deleteAccount" ,method=RequestMethod.POST)
-	public ModelAndView unregisterUser( @ModelAttribute("user") User user){
-		int newuser = user.getId();
-		String name = user.getUserName();
-		System.out.println("Testing to find this fucking user id" + newuser + name);
-		
-		
-		ModelAndView modelAndView = new ModelAndView("home");
-		
-		return modelAndView;
-	}*/
-	
-
-	
-//	@ModelAttribute
-//	public void headerMessage(Model model){
-//		model.addAttribute("headerMessage", "RoverAndFriends");
-//		
-//		List<String> techList = new ArrayList<>();
-//		techList.add("Hibernate");
-//		techList.add("Spring");
-//		techList.add("JSP");
-//		techList.add("Servlet");
-//		techList.add("Struts");
-//		
-//		List<String> citesList = new ArrayList<>();
-//		citesList.add("Pune");
-//		citesList.add("Chennai");
-//		citesList.add("Delhi");
-//		citesList.add("Other");
-//		
-//		model.addAttribute("technologyList", techList);
-//		model.addAttribute("citesList", citesList);
-//	}
 }

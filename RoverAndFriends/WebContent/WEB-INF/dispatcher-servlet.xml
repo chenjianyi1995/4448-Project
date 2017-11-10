@@ -17,6 +17,7 @@
 
 	<!-- Auto scans packages -->
 	<context:component-scan base-package="com.roverandfriends.controller"></context:component-scan>
+	<context:component-scan base-package="com.roverandfriends.service"></context:component-scan>
 	<context:component-scan base-package="com.roverandfriends.service.impl"></context:component-scan>
 	<context:component-scan base-package="com.roverandfriends.dao.impl"></context:component-scan>
 

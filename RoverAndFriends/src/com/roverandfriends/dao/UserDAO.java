@@ -13,4 +13,5 @@ public interface UserDAO {
 	public abstract boolean deleteUser(User user);
 	public User getUserDetailsByEmailAndPassword(String email,String password);
 	public List<User> getUserList();
+	
 }

@@ -18,6 +18,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "user_table")
 public class User {
 
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")

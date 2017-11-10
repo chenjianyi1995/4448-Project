@@ -12,7 +12,7 @@
 			<li><a href="/RoverAndFriends/addFriends">Add Friends</a></li>
 			<li><a href="/RoverAndFriends/find-pet-sitter">Find Pet Sitter</a></li>
 			<li><a href="/RoverAndFriends/pet-store-locator">Pet Store Locator</a></li>
-			<li><a href="/RoverAndFriends/calendar">Calendar</a></li>
+			<li><a href="/RoverAndFriends/list-calendarEvents">Calendar</a></li>
 			<li><a href="/RoverAndFriends/buy-pet-tag">Buy Pet Tag</a></li>
 			
 		</ul>
