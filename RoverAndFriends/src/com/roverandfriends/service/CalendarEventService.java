@@ -7,10 +7,16 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+
 import com.roverandfriends.model.CalendarEvent;
+import com.roverandfriends.model.User;
+import com.sun.istack.internal.logging.Logger;
 
 @Service
 public class CalendarEventService {
+	
+	final static Logger logger = Logger.getLogger(CalendarEventService.class);
+	
 	private static List<CalendarEvent> calendarEvents = new ArrayList<CalendarEvent>();
 	private static int calendarEventCount = 3;
 
@@ -18,6 +24,7 @@ public class CalendarEventService {
 		calendarEvents.add(new CalendarEvent(1, "Jorge Benavides", "test1", new Date(), false));
 		calendarEvents.add(new CalendarEvent(2, "Jorge Benavides", "test2", new Date(), false));
 		calendarEvents.add(new CalendarEvent(3, "Jorge Benavides", "test3", new Date(), false));
+		logger.info("show calendar events after static" + calendarEvents);
 	}
 
 	public List<CalendarEvent> retrieveCalendarEvents(String user) {
@@ -27,6 +34,10 @@ public class CalendarEventService {
 				filteredCalendarEvents.add(calendarEvent);
 		}
 		return filteredCalendarEvents;
+	}
+	
+	public String getCurrentUserName(User user) {
+		return user.getUserName();
 	}
 
 	public CalendarEvent retrieveCalendarEvent(int id) {

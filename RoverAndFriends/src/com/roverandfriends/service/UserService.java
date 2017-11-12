@@ -11,6 +11,7 @@ public interface UserService {
 	public abstract boolean registerUser(User user);
 	public abstract boolean unregisterUser(User user);
 	public List<User> getUserList();
+	public abstract String getUserName(User user);
 
 
 	

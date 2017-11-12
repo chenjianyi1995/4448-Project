@@ -19,15 +19,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.roverandfriends.model.CalendarEvent;
+import com.roverandfriends.model.User;
 import com.roverandfriends.service.CalendarEventService;
+import com.sun.istack.internal.logging.Logger;
+
 
 
 @Controller
 @SessionAttributes({"name" ,"user"})
 public class CalendarEventController {
 
+	final static Logger logger = Logger.getLogger(CalendarEventController.class);
+	
 	@Autowired
 	private CalendarEventService service;
+	
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -38,9 +44,11 @@ public class CalendarEventController {
 
 	@RequestMapping(value = "/list-calendarEvents", method = RequestMethod.GET)
 	public String showCalendarEventsList(ModelMap model) {
-		String user = (String) model.get("name");
-		System.out.println();
-		model.addAttribute("calendarEvents", service.retrieveCalendarEvents(user));
+		Object name = model.get("user");
+		String userNameModel = service.getCurrentUserName((User) name);
+		//logger.info("***********************Tetsing load calendar page and getusername***********************" + userNameModel);
+		model.addAttribute("CurrentUserName");
+		model.addAttribute("calendarEvents", service.retrieveCalendarEvents(userNameModel));
 		return "list-calendarEvents";
 	}
 
@@ -55,8 +63,9 @@ public class CalendarEventController {
 
 		if (result.hasErrors())
 			return "calendarEvent";
-
-		service.addCalendarEvent((String) model.get("name"), calendarEvent.getDesc(), new Date(),
+		Object name = model.get("user");
+		String CurrentUserName = service.getCurrentUserName((User) name);
+		service.addCalendarEvent(CurrentUserName, calendarEvent.getDesc(), new Date(),
 				false);
 		model.clear();// to prevent request parameter "name" to be passed
 		return "redirect:/list-calendarEvents";
@@ -74,7 +83,9 @@ public class CalendarEventController {
 		if (result.hasErrors())
 			return "calendarEvent";
 
-		calendarEvent.setUser("Jorge Benavides"); //CalendarEvent:Remove Hardcoding Later
+		Object name = model.get("user");
+		String CurrentUserName = service.getCurrentUserName((User) name);
+		calendarEvent.setUser(CurrentUserName); 
 		service.updateCalendarEvent(calendarEvent);
 
 		model.clear();// to prevent request parameter "name" to be passed

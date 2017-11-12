@@ -23,8 +23,8 @@
 								value="${calendarEvent.targetDate}" /></td>
 						<td>${calendarEvent.done}</td>
 						<td><a type="button" class="btn btn-primary"
-							href="/update-calendarEvent?id=${calendarEvent.id}">Edit</a> <a type="button"
-							class="btn btn-warning" href="/delete-calendarEvent?id=${calendarEvent.id}">Delete</a>
+							href="/RoverAndFriends/update-calendarEvent?id=${calendarEvent.id}">Edit</a> <a type="button"
+							class="btn btn-warning" href="/RoverAndFriends/delete-calendarEvent?id=${calendarEvent.id}">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>

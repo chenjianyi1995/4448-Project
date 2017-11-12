@@ -23,6 +23,10 @@ public class UserServiceImpl implements UserService {
 		this.userDAO = userDAO;
 	}
 	
+	public String getUserName(User user) {
+		return user.getUserName();
+	}
+	
 	public UserDAO getUserDAO() {
 		return userDAO;
 	}

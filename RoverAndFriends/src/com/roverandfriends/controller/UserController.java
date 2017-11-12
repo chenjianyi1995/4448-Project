@@ -22,7 +22,7 @@ import com.roverandfriends.service.UserService;
 import com.sun.istack.internal.logging.Logger;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes({"user", "userNameModel"})
 public class UserController {
 	
 	final static Logger logger = Logger.getLogger(UserController.class);
@@ -61,18 +61,22 @@ public class UserController {
 	
 	@RequestMapping(value = { "/profile" }, method = RequestMethod.GET)
 	public String showProfile(ModelMap model) {
+		//Object name = model.get("user");
+		//String userName = userService.getUserName((User) name);
+		//logger.info("***********************this is what is returned from model user input " + name);
+		//logger.info("***********************this is what is returned from model user input " + userName);
 		return "profile";
 	}
 	
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String showWelcome(ModelMap model) {
-		logger.info("Plaease work already");
 		return "welcome";
 	}
 	
 	@RequestMapping(value ="/login" ,method=RequestMethod.GET)
 	public String loginPage(Model model){
 		model.addAttribute("userLoginCredential", new UserLoginCredential());
+		
 		return "login";
 	}
 
@@ -91,8 +95,13 @@ public class UserController {
 	}	
 	
 	@RequestMapping(value ="/home" ,method=RequestMethod.GET)
-	public ModelAndView showHomePage(){
-		 ModelAndView modelAndView = new ModelAndView("home");
+	public ModelAndView showHomePage(ModelMap model){
+		//logger.info("****************************" userService.g);
+		ModelAndView modelAndView = new ModelAndView("home");
+		Object name = model.get("user");
+		String userNameModel = userService.getUserName((User) name);
+			
+		model.addAttribute("userNameModel", userNameModel);
 		 return modelAndView;
 	}
 	
