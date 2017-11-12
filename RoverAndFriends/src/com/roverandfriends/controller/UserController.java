@@ -19,10 +19,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.roverandfriends.model.User;
 import com.roverandfriends.model.UserLoginCredential;
 import com.roverandfriends.service.UserService;
+import com.sun.istack.internal.logging.Logger;
 
 @Controller
 @SessionAttributes("user")
 public class UserController {
+	
+	final static Logger logger = Logger.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -63,6 +66,7 @@ public class UserController {
 	
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String showWelcome(ModelMap model) {
+		logger.info("Plaease work already");
 		return "welcome";
 	}
 	
