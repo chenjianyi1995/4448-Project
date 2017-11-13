@@ -31,16 +31,10 @@ public class UserServiceImpl implements UserService {
 		return userDAO;
 	}
 	
-
-	
 	@Override
 	public List<User> getUserList(){
 		return userDAO.getUserList();
 	}
-	
-	
-	
-
 	
 	@Override
 	public boolean registerUser(User user) {

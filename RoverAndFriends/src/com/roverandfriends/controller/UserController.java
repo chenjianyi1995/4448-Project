@@ -49,11 +49,6 @@ public class UserController {
 		return "find-pet-sitter";
 	}
 	
-	@RequestMapping(value = { "/friends" }, method = RequestMethod.GET)
-	public String showFriends(ModelMap model) {
-		return "friends";
-	}
-	
 	@RequestMapping(value = { "/pet-store-locator" }, method = RequestMethod.GET)
 	public String showPetStoreLocator(ModelMap model) {
 		return "pet-store-locator";

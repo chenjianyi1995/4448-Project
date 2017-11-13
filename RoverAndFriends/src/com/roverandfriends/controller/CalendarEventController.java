@@ -67,7 +67,7 @@ public class CalendarEventController {
 		String CurrentUserName = service.getCurrentUserName((User) name);
 		service.addCalendarEvent(CurrentUserName, calendarEvent.getDesc(), new Date(),
 				false);
-		model.clear();// to prevent request parameter "name" to be passed
+		model.clear();
 		return "redirect:/list-calendarEvents";
 	}
 
