@@ -61,6 +61,20 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	@Override
+	public void updateUserDogSitterStatusToTrue(User user) {
+		user.setDogSitter(true);
+		userDAO.updateUserDogSitterStatus(user);
+		
+	}
+	
+	@Override
+	public void updateUserDogSitterStatusToFalse(User user) {
+		user.setDogSitter(false);
+		userDAO.updateUserDogSitterStatus(user);
+		
+	}
+
 
 	
 

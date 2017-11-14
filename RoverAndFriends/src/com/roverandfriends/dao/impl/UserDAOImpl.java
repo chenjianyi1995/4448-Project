@@ -58,6 +58,12 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 	}
 	
+	@Override
+	public void updateUserDogSitterStatus(User user) {
+		hibernateTemplate.update(user);
+		
+	}
+	
 
 
 }

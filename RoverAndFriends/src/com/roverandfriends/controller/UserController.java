@@ -128,6 +128,9 @@ public class UserController {
 			 modelAndView = new ModelAndView("notFound");
 		}
 		return modelAndView;
+
+	
+
 	}
 	
 
@@ -143,6 +146,29 @@ public class UserController {
 		ModelAndView modelAndView = new ModelAndView("home");
 		modelAndView.addObject("user", user);
 		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value ="/changeDogSittingStatusToTrue" ,method=RequestMethod.GET)
+	public String showUpdatedHomePage(ModelMap model){
+		//logger.info("****************************" userService.g)
+		
+		User name =(User) model.get("user");
+		userService.updateUserDogSitterStatusToTrue(name);
+		
+		logger.info("******************************************" + name);
+		 return "home";
+	}
+	
+	@RequestMapping(value ="/changeDogSittingStatusToFalse" ,method=RequestMethod.GET)
+	public String showUpdatedHomePageFalse(ModelMap model){
+		//logger.info("****************************" userService.g)
+		
+		User name =(User) model.get("user");
+		userService.updateUserDogSitterStatusToFalse(name);
+		
+		logger.info("******************************************" + name);
+		 return "home";
 	}
 	
 }

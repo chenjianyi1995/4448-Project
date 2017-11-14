@@ -14,30 +14,36 @@
 </head>
 <body>
 	<h3 align="center">${headerMessage}</h3>
-	<form:form action="/RoverAndFriends/registerSuccess"
-		method="post" modelAttribute="user">
+	<form:form action="/RoverAndFriends/registerSuccess" method="post"
+		modelAttribute="user">
 		<table align="center">
-		<caption align="top">User registration form</caption>
+			<caption align="top">User registration form</caption>
 			<tr>
 				<td>Enter Email:</td>
 				<td><form:input path="email" /></td>
-				<td><form:errors path="email" cssClass="error"/></td>
+				<td><form:errors path="email" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td>Enter Password:</td>
-				<td><form:password path="password"/></td>
-				<td><form:errors path="password" cssClass="error"/></td>
+				<td><form:password path="password" /></td>
+				<td><form:errors path="password" cssClass="error" /></td>
 			</tr>
 
 			<tr>
 				<td>Enter your Name:</td>
-				<td><form:input path="userName"/></td>
-				<td><form:errors path="userName" cssClass="error"/></td>
+				<td><form:input path="userName" /></td>
+				<td><form:errors path="userName" cssClass="error" /></td>
 			</tr>
 
-	
+			<tr>
+				<td>Enter your Zip Code:</td>
+				<td><form:input path="zipCode" /></td>
+				<td><form:errors path="zipCode" cssClass="error" /></td>
+			</tr>
 
-			<tr> 
+
+
+			<tr>
 				<td><input type="submit" value="Register"></td>
 			</tr>
 		</table>

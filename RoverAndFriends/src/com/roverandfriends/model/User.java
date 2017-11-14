@@ -6,9 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.sun.istack.internal.NotNull;
 
 @Entity
 @Table(name = "user_table")
@@ -36,6 +39,15 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
+	
+	@Column(name = "dog_sitter")
+	private boolean dogSitter;
+	
+	@NotNull
+	@Column(name = "zip_code")
+	private int zipCode;
+	
+
 	public String getUserName() {
 		return userName;
 	}
@@ -63,4 +75,22 @@ public class User {
 	public int getId() {
 		return id;
 	}
+
+	public boolean isDogSitter() {
+		return dogSitter;
+	}
+
+	public void setDogSitter(boolean dogSitter) {
+		this.dogSitter = dogSitter;
+	}
+
+	public int getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
+	}
+	
+	
 }

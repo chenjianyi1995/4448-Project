@@ -12,6 +12,8 @@ public interface UserService {
 	public abstract boolean unregisterUser(User user);
 	public List<User> getUserList();
 	public abstract String getUserName(User user);
+	public abstract void updateUserDogSitterStatusToTrue(User user);
+	public abstract void updateUserDogSitterStatusToFalse(User user);
 
 
 	
