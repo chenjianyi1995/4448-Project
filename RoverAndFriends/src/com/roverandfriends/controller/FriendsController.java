@@ -1,6 +1,7 @@
 package com.roverandfriends.controller;
 
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class FriendsController {
 		String userNameModel = service.getCurrentUserName((User) name);
 		//logger.info("***********************Tetsing load frends page and getusername***********************" + userNameModel);
 		model.addAttribute("CurrentUserName");
+		//List<Friends> friendlistforiterator = service.retrieveFriendsList(userNameModel);
+		service.printFriendsListWithIterator();
+		
 		model.addAttribute("friendsList", service.retrieveFriendsList(userNameModel));
 		return "friends";
 	}

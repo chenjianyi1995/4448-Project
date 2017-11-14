@@ -6,20 +6,17 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
 import com.roverandfriends.model.Friends;
 import com.roverandfriends.model.User;
 import com.sun.istack.internal.logging.Logger;
 
 @Service
 public class FriendsListService {
-	
+
 	final static Logger logger = Logger.getLogger(FriendsListService.class);
-	
+
 	private static List<Friends> friendslist = new ArrayList<Friends>();
 	private static int friendsCount = 3;
-	
-	
 
 	static {
 		friendslist.add(new Friends(1, "Jorge Benavides", "User4"));
@@ -37,7 +34,7 @@ public class FriendsListService {
 		logger.info("show friends events after static match jorge " + friendslist);
 		return filteredFriendslist;
 	}
-	
+
 	public String getCurrentUserName(User user) {
 		return user.getUserName();
 	}
@@ -66,6 +63,13 @@ public class FriendsListService {
 			if (friends.getId() == id) {
 				iterator.remove();
 			}
+		}
+	}
+
+	public void printFriendsListWithIterator() {
+		Iterator name = friendslist.iterator();
+		while (name.hasNext()) {
+			System.out.println("iterator list " + name.next());
 		}
 	}
 }
