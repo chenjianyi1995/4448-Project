@@ -6,12 +6,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.roverandfriends.dao.UserDAO;
 import com.roverandfriends.model.User;
 import com.roverandfriends.service.UserService;
 
+
 @Service("userService")
+@Transactional
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -61,18 +64,27 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	
 	@Override
+	@Transactional
 	public void updateUserDogSitterStatusToTrue(User user) {
 		user.setDogSitter(true);
 		userDAO.updateUserDogSitterStatus(user);
 		
 	}
 	
+
 	@Override
+	@Transactional
 	public void updateUserDogSitterStatusToFalse(User user) {
 		user.setDogSitter(false);
 		userDAO.updateUserDogSitterStatus(user);
 		
+	}
+
+	@Override
+	public List<User> getDogSitters() {
+		return userDAO.getDogSitterList();
 	}
 
 

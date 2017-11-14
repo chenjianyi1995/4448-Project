@@ -45,9 +45,13 @@ public class UserController {
 	
 	
 	@RequestMapping(value = { "/find-pet-sitter" }, method = RequestMethod.GET)
-	public String showFindPetSitter(ModelMap model) {
-		return "find-pet-sitter";
-	}
+	public ModelAndView addShowFindPetSitterPage(){
+		 ModelAndView modelAndView = new ModelAndView("find-pet-sitter");
+		 List<User> userList = userService.getDogSitters();
+		 modelAndView.addObject("userList", userList);
+		 return modelAndView;
+	}	
+	
 	
 	@RequestMapping(value = { "/pet-store-locator" }, method = RequestMethod.GET)
 	public String showPetStoreLocator(ModelMap model) {
@@ -95,7 +99,7 @@ public class UserController {
 		ModelAndView modelAndView = new ModelAndView("home");
 		Object name = model.get("user");
 		String userNameModel = userService.getUserName((User) name);
-			
+		
 		model.addAttribute("userNameModel", userNameModel);
 		 return modelAndView;
 	}

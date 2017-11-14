@@ -17,9 +17,7 @@ import com.sun.istack.internal.NotNull;
 @Table(name = "user_table")
 public class User {
 
-	public User() {
-		super();
-	}
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -90,6 +88,16 @@ public class User {
 
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", email=" + email + ", password=" + password
+				+ ", dogSitter=" + dogSitter + ", zipCode=" + zipCode + "]";
+	}
+
+	public User() {
+		super();
 	}
 	
 	

@@ -14,5 +14,6 @@ public interface UserDAO {
 	public User getUserDetailsByEmailAndPassword(String email,String password);
 	public List<User> getUserList();
 	void updateUserDogSitterStatus(User user);
+	public abstract List<User> getDogSitterList();
 	
 }

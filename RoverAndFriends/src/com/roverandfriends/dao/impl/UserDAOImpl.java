@@ -2,20 +2,32 @@ package com.roverandfriends.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.roverandfriends.dao.UserDAO;
 import com.roverandfriends.model.User;
+import com.sun.istack.internal.logging.Logger;
 
 @Repository("userDAO")
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
+	final static Logger logger = Logger.getLogger(UserDAOImpl.class);
+	
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
+	
+	/*@PersistenceContext
+	public EntityManager entityManager;*/
 
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
@@ -59,9 +71,25 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	@Transactional(readOnly=false)
 	public void updateUserDogSitterStatus(User user) {
-		hibernateTemplate.update(user);
 		
+		logger.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" + user);
+		hibernateTemplate.update(user);
+		SessionFactory session = hibernateTemplate.getSessionFactory();
+		logger.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" + session);
+		//entityManager.persist(user);
+	
+		
+
+		
+		
+		
+	}
+
+	@Override
+	public List<User> getDogSitterList() {
+		return (List<User>) hibernateTemplate.find("from User where dog_sitter = 1"); 
 	}
 	
 
