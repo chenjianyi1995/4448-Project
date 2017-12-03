@@ -4,7 +4,7 @@
 
 
 
-<h3 align="center">${user.userName}'sHome Page</h3>
+<h3 align="center"> Welcome ${user.userName}</h3>
 
 <div class="container">
 

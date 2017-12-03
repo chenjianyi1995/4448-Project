@@ -5,6 +5,7 @@
 	</div>
 
 	<div class="navbar-collapse">
+	<div style="color:#FF4500">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="/RoverAndFriends/home">Home</a></li>
 			<li><a href="/RoverAndFriends/profile">Profile</a></li>
@@ -21,6 +22,7 @@
 		</ul>
 		
 		
+	</div>
 	</div>
 
 </nav>
