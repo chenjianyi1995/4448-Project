@@ -12,7 +12,7 @@
 }
 </style>
 </head>
-<body>
+<body background = "Dogs.jpg">
 	<h3 align="center">${headerMessage}</h3>
 	<form:form action="/RoverAndFriends/registerSuccess" method="post"
 		modelAttribute="user">
