@@ -22,7 +22,7 @@
       function initMap() {
         var boulder = {lat: 40.0150, lng: -105.2705};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
+          zoom: 14,
           center: boulder
         });
         var request = {
