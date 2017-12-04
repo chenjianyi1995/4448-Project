@@ -4,7 +4,7 @@
 		<a href="/RoverAndFriends/home" class="navbar-brand">RoverAndFriends</a>
 	</div>
 
-	<div class="navbar-collapse">
+	<div class="navbar-collapse amber darken-3">
 	<div style="color:#FF4500">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="/RoverAndFriends/home">Home</a></li>
