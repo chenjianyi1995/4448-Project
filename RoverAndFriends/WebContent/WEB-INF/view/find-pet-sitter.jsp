@@ -6,7 +6,6 @@
 <div class="container">
 
 	<table class="table table-striped">
-		<caption>List of dog sitters <br> Use email to get a hold of dog sitters</caption>
 		<thead>
 			<tr>
 				<th>Name</th>

@@ -1,9 +1,11 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 
+<h3 style="text-align:center">Find pet stores near you</h3>
+
 <div class="container">
-	<p class="center"> edit page to find pet store</p>
-</div>
+	
+
 <!--  
 <! DOCTYPE html>
 <html>
@@ -60,11 +62,11 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 90%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 100%;
+        height: 80%;
         margin: 0;
         padding: 0;
       }
@@ -118,4 +120,5 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJetgAVsV0loL7VDfszfB5YqCyqwGkrVs&Petsmart=places&callback=initMap" async defer></script>
   </body>
 </html>
+</div>
 <%@ include file="common/footer.jspf"%>

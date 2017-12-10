@@ -6,7 +6,6 @@
 <div class="container">
 
 	<table class="table table-striped">
-		<caption>List of Users</caption>
 		<thead>
 			<tr>
 				<th>Name</th>
