@@ -225,4 +225,9 @@ public class UserController {
 		 return "buy-pet-tag";
 	}
 	
+	@RequestMapping(value ="/returnHome", method=RequestMethod.GET)
+	public String returnHome(ModelMap model) {
+		return "home";
+	}
+	
 }
