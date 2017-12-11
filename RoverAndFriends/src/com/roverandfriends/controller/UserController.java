@@ -16,13 +16,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.roverandfriends.model.AddToCart;
+import com.roverandfriends.model.ExecuteCommand;
+import com.roverandfriends.model.Getshoppingcart;
+import com.roverandfriends.model.RemoveFromCart;
+import com.roverandfriends.model.ShoppingCart;
 import com.roverandfriends.model.User;
 import com.roverandfriends.model.UserLoginCredential;
 import com.roverandfriends.service.UserService;
 import com.sun.istack.internal.logging.Logger;
 
 @Controller
-@SessionAttributes({"user", "userNameModel"})
+@SessionAttributes({"user", "userNameModel", "cart"})
 public class UserController {
 	
 	final static Logger logger = Logger.getLogger(UserController.class);
@@ -39,8 +44,26 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = { "/buy-pet-tag" }, method = RequestMethod.GET)
-	public String showBuyPetTag(ModelMap model) {
-		return "buy-pet-tag";
+	public ModelAndView showBuyPetTag(ModelMap model) {
+		ShoppingCart newCart = Getshoppingcart.getShoppingCart();
+		AddToCart addCommand = new AddToCart(newCart);
+		ExecuteCommand onexcute = new ExecuteCommand(addCommand);
+		ModelAndView modelAndView = new ModelAndView("buy-pet-tag");
+		//modelAndView.addObject("cart", newCart.getItem_number());
+		modelAndView.addObject("cart", newCart);
+		logger.info("******************************************"+ "get item number" + newCart.getItem_number());
+		logger.info("******************************************"+ "get item number" + newCart);
+		onexcute.E_excute();
+		onexcute.E_undo();
+		onexcute.E_excute();
+		onexcute.E_excute();
+		onexcute.E_undo();
+		RemoveFromCart removeCommand = new RemoveFromCart(newCart);
+		ExecuteCommand R_execute = new ExecuteCommand(removeCommand);
+		R_execute.E_excute();
+		R_execute.E_undo();
+		
+		return modelAndView;
 	}
 	
 	
@@ -173,6 +196,38 @@ public class UserController {
 		
 		logger.info("******************************************" + name);
 		 return "home";
+	}
+	
+	@RequestMapping(value ="/addPettag" ,method=RequestMethod.GET)
+	public String showAddBuyPetTagPage(ModelMap model){
+		//logger.info("****************************" userService.g)
+		ShoppingCart newCart = Getshoppingcart.getShoppingCart();
+		AddToCart addCommand = new AddToCart((ShoppingCart) model.get("cart"));
+		ExecuteCommand onexcute = new ExecuteCommand(addCommand);
+		
+		onexcute.E_excute();
+		//onexcute.E_undo();
+		
+		//logger.info("******************************************" + name);
+		 return "buy-pet-tag";
+	}
+	
+	@RequestMapping(value ="/deletePettag" ,method=RequestMethod.GET)
+	public String showDeleteBuyPetTagPage(ModelMap model){
+		
+		ShoppingCart newCart = Getshoppingcart.getShoppingCart();
+		AddToCart addCommand = new AddToCart((ShoppingCart) model.get("cart"));
+		ExecuteCommand onexcute = new ExecuteCommand(addCommand);
+		
+		//onexcute.E_excute();
+		onexcute.E_undo();
+		
+		 return "buy-pet-tag";
+	}
+	
+	@RequestMapping(value ="/returnHome", method=RequestMethod.GET)
+	public String returnHome(ModelMap model) {
+		return "home";
 	}
 	
 }

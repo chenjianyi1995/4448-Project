@@ -1,4 +1,4 @@
-package com.roverandfriends.command;
+package com.roverandfriends.model;
 
 public class ExecuteCommand {
 	Command theCommand;

@@ -1,4 +1,4 @@
-package com.roverandfriends.command;
+package com.roverandfriends.model;
 
 public class AddToCart implements Command {
 	ShoppingCart theCart;
