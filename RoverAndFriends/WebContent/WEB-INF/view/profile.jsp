@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 
@@ -12,9 +16,11 @@
 			<button type="button" class="btn btn-primary" style="margin-top:10px; margin-left:290px">Upload Image</button>
 		</div>
 		<div style="margin-top:15px">
-			<form>
+			<form:form action="/RoverAndFriends/profile" method="post"
+		modelAttribute="user">
 				<textarea style="height:200px; width:700px" placeholder="Tell us about you and your pet!"></textarea>
-			</form>
+				<!--  form:input path ="info" /-->
+			</form:form>
 		</div>
 		<div>
 			<button type="button" class="btn btn-primary">Submit</button>

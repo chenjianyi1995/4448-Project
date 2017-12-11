@@ -15,6 +15,7 @@
 			<li><a href="/RoverAndFriends/pet-store-locator">Pet Store Locator</a></li>
 			<li><a href="/RoverAndFriends/list-calendarEvents">Calendar</a></li>
 			<li><a href="/RoverAndFriends/buy-pet-tag">Buy Pet Tag</a></li>
+			<li><a href="/RoverAndFriends/">Log-out</a></li>
 			
 		</ul>
 		<ul class="nav navbar-nav navbar-right">

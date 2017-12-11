@@ -44,6 +44,21 @@ public class User {
 	@NotNull
 	@Column(name = "zip_code")
 	private int zipCode;
+
+	@NotNull
+	@Column(name = "info")
+	private String info;
+	
+/*
+	@NotNull
+	@Column(name = "user_pic")
+	private Blob User_Pic;
+
+	@NotNull
+	@Column(name = "pet_pic")
+	private Blob Pet_Pic;
+*/
+
 	
 
 	public String getUserName() {
@@ -89,6 +104,14 @@ public class User {
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(string info)
+	{
+		this.info = info;
+	}
+	
 	
 	@Override
 	public String toString() {
