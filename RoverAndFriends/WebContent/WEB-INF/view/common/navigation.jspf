@@ -6,8 +6,8 @@
 
 	<div class="navbar-collapse amber darken-3">
 	<div style="color:#FF4500">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="/RoverAndFriends/home">Home</a></li>
+		<ul class="nav navbar-nav" style="backgroundcolor:#FF4500">
+			<li><a href="/RoverAndFriends/home">Home</a></li>
 			<li><a href="/RoverAndFriends/profile">Profile</a></li>
 			<li><a href="/RoverAndFriends/friends">Friends</a></li>
 			<li><a href="/RoverAndFriends/addFriends">Add Friends</a></li>
@@ -15,7 +15,6 @@
 			<li><a href="/RoverAndFriends/pet-store-locator">Pet Store Locator</a></li>
 			<li><a href="/RoverAndFriends/list-calendarEvents">Calendar</a></li>
 			<li><a href="/RoverAndFriends/buy-pet-tag">Buy Pet Tag</a></li>
-			<li><a href="/RoverAndFriends/">Log-out</a></li>
 			
 		</ul>
 		<ul class="nav navbar-nav navbar-right">

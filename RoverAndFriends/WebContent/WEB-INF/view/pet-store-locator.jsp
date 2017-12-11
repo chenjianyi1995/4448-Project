@@ -81,7 +81,7 @@
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
-          zoom: 14 // Map zoomed 
+          zoom: 12 // Map zoomed 
         });
 
         infowindow = new google.maps.InfoWindow(); //Loading Map into window object
